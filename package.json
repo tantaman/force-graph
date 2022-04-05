@@ -51,7 +51,8 @@
     "d3-zoom": "2 - 3",
     "index-array-by": "1",
     "kapsule": "^1.13",
-    "lodash.throttle": "4"
+    "lodash.throttle": "4",
+    "d3-force-sampled": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

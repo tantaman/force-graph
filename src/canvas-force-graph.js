@@ -6,6 +6,8 @@ import {
   forceRadial as d3ForceRadial
 } from 'd3-force-3d';
 
+import { forceManyBodySampled } from 'd3-force-sampled';
+
 import { Bezier } from 'bezier-js';
 
 import Kapsule from 'kapsule';
@@ -434,8 +436,9 @@ export default Kapsule({
 
   stateInit: () => ({
     forceLayout: d3ForceSimulation()
-      .force('link', d3ForceLink())
-      .force('charge', d3ForceManyBody())
+      .velocityDecay(0.2)
+      .force('link', d3ForceLink().id(function(d) { return d.id; }))
+      .force('charge', forceManyBodySampled())
       .force('center', d3ForceCenter())
       .force('dagRadial', null)
       .stop(),
